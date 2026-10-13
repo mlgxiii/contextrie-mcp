@@ -1,0 +1,56 @@
+{
+  "name": "contextrie-mcp",
+  "version": "0.1.0",
+  "description": "Contextrie as an MCP server: coding agents call select_context(task) and get the files worth reading, each with a score and a reason.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "contextrie-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node20 --packages=external --alias:@contextrie/core=./node_modules/@contextrie/core/index.ts --outfile=dist/index.js --banner:js='#!/usr/bin/env node'",
+    "dev": "tsx src/index.ts",
+    "select": "tsx scripts/select.ts",
+    "bench": "tsx scripts/bench.ts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.130",
+    "@ai-sdk/openai": "^3.0.124",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "ai": "^6.0.305",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@contextrie/core": "^0.2.2",
+    "@types/node": "^24.19.1",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "author": "Marie Gerard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlgxiii/contextrie-mcp.git"
+  },
+  "homepage": "https://github.com/mlgxiii/contextrie-mcp#readme",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "contextrie",
+    "claude-code",
+    "cursor",
+    "codex",
+    "context",
+    "retrieval",
+    "coding-agent"
+  ]
+}

@@ -1,0 +1,4 @@
+node_modules/
+.contextrie/
+.env
+.DS_Store
